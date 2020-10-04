@@ -8,8 +8,11 @@ let cities = ["miami", "barcelona", "madrid", "amsterdam", "berlin", "sao paulo"
 
 //ES5 =>
 
+let citiesCapitalized = cities.map(function(city) {
+  return city[0].toUpperCase() + city.slice(1, city.length)
+})
 
-
+console.log(citiesCapitalized)
 
 //ES6 =>
 
@@ -96,13 +99,13 @@ const students = [
 //ES6 =>
 
 
+let studentFinal = students.map(student => {
+  let finalGrade = ((student.firstProject + student.secondProject)/2) * 0.4 + student.finalExam * 0.6
+  return { name: student.name, finalGrade: Math.round(finalGrade) }
+}
+)
 
-
-
-
-
-
-
+console.log(studentFinal)
 
 //Iteration 3
 
@@ -126,8 +129,11 @@ const menu = [
 //ES6 =>
 
 
+let calculateCalories = menu.reduce((acc, currentValue) => {
+  return acc + currentValue.calories }, 0 
+) / menu.length
 
-
+console.log(calculateCalories)
 
 
 
@@ -178,10 +184,11 @@ const product = {
 //ES6 =>
 
 
+const averageRate = product.reviews.reduce((acc, currentValue) => {
+  return acc + currentValue.rate}, 0) / product.reviews.length
 
 
-
-
+console.log("The average rate of this product is " + averageRate)
 
 //Iteration 5
 
@@ -207,9 +214,9 @@ var people = [
 
 //ES6 =>
 
+let adults = people.filter(person  => person.age >= 21)
 
-
-
+console.log(adults)
 
 
 
@@ -308,7 +315,7 @@ const places = [
 //ES6 =>
 
 
-
+let queryTurist = places.filter(place => place.pool == true)
 
 
 
@@ -317,10 +324,12 @@ const places = [
 
 // Given an array of numbers, filter out the ones that are not even, and are greater than 42.
 
+
 const numbers = [1, 60, 112, 123, 100, 99, 73, 45];
 
+const definedNumber = numbers.filter(number => number % 2 === 0 && number > 42)
 
-
+console.log(definedNumber)
 
 //ES5 =>
 
